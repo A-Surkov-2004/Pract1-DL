@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Предсказание модели машинного обучения</title>
+    <link rel="stylesheet"
+          ↪ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+        padding: 20px;
+        }
+        .container {
+        max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4 mb-4">Предсказание модели машинного обучения</h1>
+    <form id="prediction-form">
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input type="number" class="form-control" id="age" min="18" max="100" required>
+        </div>
+
+        <div class="form-group">
+            <label for="job">Профессия:</label>
+            <select class="form-control" id="job" required>
+                <option value="" selected disabled>Выберите профессию</option>
+                <option value="admin.">Администратор</option>
+                <option value="blue-collar">Рабочий</option>
+                <option value="entrepreneur">Предприниматель</option>
+                <option value="housemaid">Домработница</option>
+                <option value="management">Менеджмент</option>
+                <option value="retired">Пенсионер</option>
+                <option value="self-employed">Самозанятый</option>
+                <option value="services">Сфера услуг</option>
+                <option value="student">Студент</option>
+                <option value="technician">Техник</option>
+                <option value="unemployed">Безработный</option>
+                <option value="unknown">Неизвестно</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="marital">Семейное положение:</label>
+            <select class="form-control" id="marital" required>
+                <option value="" selected disabled>Выберите статус</option>
+                <option value="married">Женат/Замужем</option>
+                <option value="single">Холост/Не замужем</option>
+                <option value="divorced">Разведен(а)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="education">Образование:</label>
+            <select class="form-control" id="education" required>
+                <option value="" selected disabled>Выберите образование</option>
+                <option value="primary">Начальное</option>
+                <option value="secondary">Среднее</option>
+                <option value="tertiary">Высшее</option>
+                <option value="unknown">Неизвестно</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="default">Дефолт по кредиту:</label>
+            <select class="form-control" id="default" required>
+                <option value="no">Нет</option>
+                <option value="yes">Да</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="balance">Баланс:</label>
+            <input type="number" class="form-control" id="balance" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="housing">Ипотека:</label>
+            <select class="form-control" id="housing" required>
+                <option value="no">Нет</option>
+                <option value="yes">Да</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="loan">Кредит:</label>
+            <select class="form-control" id="loan" required>
+                <option value="no">Нет</option>
+                <option value="yes">Да</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Способ связи:</label>
+            <select class="form-control" id="contact" required>
+                <option value="cellular">Мобильный</option>
+                <option value="telephone">Телефон</option>
+                <option value="unknown">Неизвестно</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="day">День последнего контакта:</label>
+            <input type="number" class="form-control" id="day" min="1" max="31" required>
+        </div>
+
+        <div class="form-group">
+            <label for="month">Месяц последнего контакта:</label>
+            <select class="form-control" id="month" required>
+                <option value="jan">Январь</option>
+                <option value="feb">Февраль</option>
+                <option value="mar">Март</option>
+                <option value="apr">Апрель</option>
+                <option value="may">Май</option>
+                <option value="jun">Июнь</option>
+                <option value="jul">Июль</option>
+                <option value="aug">Август</option>
+                <option value="sep">Сентябрь</option>
+                <option value="oct">Октябрь</option>
+                <option value="nov">Ноябрь</option>
+                <option value="dec">Декабрь</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Длительность:</label>
+            <input type="number" class="form-control" id="duration" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="campaign">Предыдущие контакты за эту кампанию:</label>
+            <input type="number" class="form-control" id="campaign" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pdays">Прошло дней с последнего контакта:</label>
+            <input type="number" class="form-control" id="pdays" min="-1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="previous">Предыдущие контакты:</label>
+            <input type="number" class="form-control" id="previous" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="poutcome">Исход предыдущей кампании:</label>
+            <select class="form-control" id="poutcome" required>
+                <option value="failure">Неудача</option>
+                <option value="success">Успех</option>
+                <option value="other">Другое</option>
+                <option value="unknown">Неизвестно</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Предсказать</button>
+    </form>
+    <div class="mt-4" id="result"></div>
+</div>
+<script>
+    document.getElementById('prediction-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const age = parseFloat(document.getElementById('age').value);
+    const job = document.getElementById('job').value;
+    const marital = document.getElementById('marital').value;
+    const education = document.getElementById('education').value;
+    const defaultStatus = document.getElementById('default').value;
+    const balance = parseFloat(document.getElementById('balance').value);
+    const housing = document.getElementById('housing').value;
+    const loan = document.getElementById('loan').value;
+    const contact = document.getElementById('contact').value;
+    const day = parseInt(document.getElementById('day').value);
+    const month = document.getElementById('month').value;
+    const duration = parseFloat(document.getElementById('duration').value);
+    const campaign = parseInt(document.getElementById('campaign').value);
+    const pdays = parseInt(document.getElementById('pdays').value);
+    const previous = parseInt(document.getElementById('previous').value);
+    const poutcome = document.getElementById('poutcome').value;
+
+    // Отправляем данные на сервер
+    const response = await fetch('/predict', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        age: age,
+        job: job,
+        marital: marital,
+        education: education,
+        default: defaultStatus,
+        balance: balance,
+        housing: housing,
+        loan: loan,
+        contact: contact,
+        day: day,
+        month: month,
+        duration: duration,
+        campaign: campaign,
+        pdays: pdays,
+        previous: previous,
+        poutcome: poutcome
+      })
+    });
+    const data = await response.json();
+    const predictionResult = data === 1 ? 'Да' : 'Нет';
+    document.getElementById('result').innerHTML = `
+      <div class="alert alert-${result.data === 1 ? 'success' : 'danger'}">
+        Предсказание: ${predictionResult}
+      </div>
+    `;
+    });
+</script>
+</body>
+</html>
