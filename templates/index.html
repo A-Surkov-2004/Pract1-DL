@@ -204,7 +204,7 @@
     const data = await response.json();
     const predictionResult = data === 1 ? 'Да' : 'Нет';
     document.getElementById('result').innerHTML = `
-      <div class="alert alert-${result.data === 1 ? 'success' : 'danger'}">
+      <div class="alert alert-${data === 1 ? 'success' : 'danger'}">
         Предсказание: ${predictionResult}
       </div>
     `;
