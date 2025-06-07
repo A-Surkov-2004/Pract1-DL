@@ -36,6 +36,9 @@
 
 Запушить [образ на докерхаб](https://hub.docker.com/r/andreysurk/ml-model-app)
 
+![image](https://github.com/user-attachments/assets/aded05d5-1f89-47ae-bfcd-dd2b60fbebdd)
+
+
 ## Шаг 3:
 
 Составить отчет
